@@ -1,0 +1,11 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "maven.terminal.favorites": [ 
+        {
+            "alias": "TestNG - Complete Selenium Proj",
+            "command": "clean test -Dsurefire.suiteXmlFiles=/testng.xml"
+        }
+        
+
+    ]
+}
