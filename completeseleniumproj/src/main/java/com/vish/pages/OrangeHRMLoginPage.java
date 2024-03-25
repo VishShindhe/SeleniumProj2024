@@ -24,4 +24,8 @@ public final class OrangeHRMLoginPage{
         DriverManager.getDriver().findElement(button_login).click();
         return new OrangeHRMHomePage();
     }
+
+    public String getTitle() {
+        return DriverManager.getDriver().getTitle();
+    }
 }
