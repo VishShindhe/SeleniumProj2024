@@ -14,13 +14,9 @@ public final class OrangeHRMTests extends BaseTest{
 
     @Test
     public void loginLogoutTest() throws InterruptedException{
-        OrangeHRMLoginPage ohlp = new OrangeHRMLoginPage();
-        //OrangeHRMHomePage ohhp = new OrangeHRMHomePage();
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        //ohhp = ohlp.enterUserName("Admin").enterPassword("admin123").clickLogin();
-        //ohlp = ohhp.clickAccount().clickLogout();
 
-        String title = ohlp.enterUserName("Admin").enterPassword("admin123").clickLogin()
+        String title = new OrangeHRMLoginPage()
+                .enterUserName("Admin").enterPassword("admin123").clickLogin()
                 .clickAccount().clickLogout()
                 .getTitle();
 
