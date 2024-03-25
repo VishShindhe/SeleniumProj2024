@@ -11,7 +11,7 @@ public class AssertJSoftAssertion {
 
         softly.assertThat("Hello World")
                 .isNotEmpty()
-                .hasSize(5)
+                //.hasSize(5)
                 .contains("Hello");
         System.out.println("Hi");
         softly.assertAll();

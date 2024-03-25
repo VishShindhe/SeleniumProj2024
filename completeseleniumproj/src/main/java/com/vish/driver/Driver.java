@@ -16,7 +16,7 @@ public final class Driver {
         if(Objects.isNull(DriverManager.getDriver())){
             System.setProperty("webdriver.gecko.driver",FrameworkConstants.getFirefoxDriverPath());
             DriverManager.setDriver(new FirefoxDriver());
-            DriverManager.getDriver().get(ReadPropertyFile.getValue("url"));
+            DriverManager.getDriver().get(ReadPropertyFile.getValue("url").trim());
         }
     }
 
