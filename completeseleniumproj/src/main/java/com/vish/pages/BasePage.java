@@ -2,7 +2,10 @@ package com.vish.pages;
 
 import com.vish.constants.FrameworkConstants;
 import com.vish.driver.DriverManager;
+import com.vish.enums.WaitStrategy;
+import com.vish.factories.ExplicitWaitFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,32 +13,21 @@ import java.time.Duration;
 
 public class BasePage {
 
-    protected void click(By by, String waitStrategy) {
-        if(waitStrategy.equalsIgnoreCase("clickable")){
-            explicitlyWaitForElementToBeClickable(by);
-        }
-        else if(waitStrategy.equalsIgnoreCase("presence")){
-            explicitlyWaitForElementToBePresent(by);
-        }
-
-        DriverManager.getDriver().findElement(by).click();
+    protected void click(By by, WaitStrategy waitStrategy) {
+        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        element.click();
     }
 
-    protected void sendKeys(By by, String value,String waitStrategy) {
-        if(waitStrategy.equalsIgnoreCase("clickable")){
-            explicitlyWaitForElementToBeClickable(by);
-        }
-        else if(waitStrategy.equalsIgnoreCase("presence")){
-            explicitlyWaitForElementToBePresent(by);
-        }
-        DriverManager.getDriver().findElement(by).sendKeys(value);
+    protected void sendKeys(By by, String value, WaitStrategy waitStrategy) {
+        WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
+        element.sendKeys(value);
     }
 
     protected String getPageTitle() {
         return DriverManager.getDriver().getTitle();
     }
 
-    private void explicitlyWaitForElementToBeClickable(By by){
+   /* private void explicitlyWaitForElementToBeClickable(By by){
         new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
                 .until(ExpectedConditions.elementToBeClickable(by));
     }
@@ -43,5 +35,5 @@ public class BasePage {
     private void explicitlyWaitForElementToBePresent(By by){
         new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
                 .until(ExpectedConditions.presenceOfElementLocated(by));
-    }
+    } */
 }

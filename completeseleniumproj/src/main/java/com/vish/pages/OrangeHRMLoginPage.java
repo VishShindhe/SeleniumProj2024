@@ -1,11 +1,7 @@
 package com.vish.pages;
 
-import com.vish.driver.DriverManager;
+import com.vish.enums.WaitStrategy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public final class OrangeHRMLoginPage extends BasePage{
 
@@ -14,17 +10,17 @@ public final class OrangeHRMLoginPage extends BasePage{
     private final By loginButton = By.xpath("//button[@type='submit']");
 
     public OrangeHRMLoginPage enterUserName(String username){
-        sendKeys(usernameTextbox,username,"presence");
+        sendKeys(usernameTextbox,username, WaitStrategy.PRESENCE);
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password){
-        sendKeys(passwordTextbox, password,"presence");
+        sendKeys(passwordTextbox, password,WaitStrategy.PRESENCE);
         return this;
     }
 
     public OrangeHRMHomePage clickLogin() {
-        click(loginButton, "clickable");
+        click(loginButton, WaitStrategy.CLICKABLE);
         return new OrangeHRMHomePage();
     }
 
