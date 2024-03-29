@@ -9,15 +9,16 @@ public class ExtentManager {
 
     private final static ThreadLocal<ExtentTest> extTest = new ThreadLocal<>();
 
-    public static ExtentTest getExtentTest() {
+    // default access modifier --> can be accessed within the package
+    static ExtentTest getExtentTest() {
         return extTest.get();
     }
 
-    public static void setExtentTest(ExtentTest test) {
+    static void setExtentTest(ExtentTest test) {
         extTest.set(test);
     }
 
-    public static void unload() {
+    static void unload() {
         extTest.remove();
     }
 }

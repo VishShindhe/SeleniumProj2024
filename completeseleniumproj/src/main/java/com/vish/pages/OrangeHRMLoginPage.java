@@ -1,6 +1,7 @@
 package com.vish.pages;
 
 import com.vish.enums.WaitStrategy;
+import com.vish.reports.ExtentLogger;
 import com.vish.reports.ExtentManager;
 import com.vish.reports.ExtentReport;
 import org.openqa.selenium.By;
@@ -14,20 +15,17 @@ public final class OrangeHRMLoginPage extends BasePage {
 
 
     public OrangeHRMLoginPage enterUserName(String username){
-        sendKeys(usernameTextbox,username, WaitStrategy.PRESENCE);
-        ExtentManager.getExtentTest().pass("Entered username "+username);
+        sendKeys(usernameTextbox,username, WaitStrategy.PRESENCE, "Username");
         return this;
     }
 
     public OrangeHRMLoginPage enterPassword(String password){
-        sendKeys(passwordTextbox, password,WaitStrategy.PRESENCE);
-        ExtentManager.getExtentTest().pass("Entered password "+password);
+        sendKeys(passwordTextbox, password,WaitStrategy.PRESENCE, "Password");
         return this;
     }
 
     public OrangeHRMHomePage clickLogin() {
-        click(loginButton, WaitStrategy.CLICKABLE);
-        ExtentManager.getExtentTest().pass("Clicked Login ");
+        click(loginButton, WaitStrategy.CLICKABLE, "Login Button");
         return new OrangeHRMHomePage();
     }
 
