@@ -14,17 +14,17 @@ public final class OrangeHRMLoginPage extends BasePage {
 
 
 
-    public OrangeHRMLoginPage enterUserName(String username){
+    public OrangeHRMLoginPage enterUserName(String username) throws Exception {
         sendKeys(usernameTextbox,username, WaitStrategy.PRESENCE, "Username");
         return this;
     }
 
-    public OrangeHRMLoginPage enterPassword(String password){
+    public OrangeHRMLoginPage enterPassword(String password) throws Exception {
         sendKeys(passwordTextbox, password,WaitStrategy.PRESENCE, "Password");
         return this;
     }
 
-    public OrangeHRMHomePage clickLogin() {
+    public OrangeHRMHomePage clickLogin() throws Exception {
         click(loginButton, WaitStrategy.CLICKABLE, "Login Button");
         return new OrangeHRMHomePage();
     }

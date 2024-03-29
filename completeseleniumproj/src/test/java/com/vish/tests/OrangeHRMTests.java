@@ -11,7 +11,7 @@ public final class OrangeHRMTests extends BaseTest{
     private OrangeHRMTests(){}
 
     @Test(dataProvider = "LoginTestDataProvider")
-    public void loginLogoutTest(String username, String password) throws InterruptedException{
+    public void loginLogoutTest(String username, String password) throws Exception {
 
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLogin()
