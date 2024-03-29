@@ -18,7 +18,7 @@ public class BasePage {
     protected void sendKeys(By by, String value, WaitStrategy waitStrategy, String elementName) {
         WebElement element = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
         element.sendKeys(value);
-        ExtentLogger.pass(value +" is successfully entered in "+elementName);
+        ExtentLogger.pass(value +" is successfully entered in "+elementName +" field");
     }
 
     protected String getPageTitle() {
