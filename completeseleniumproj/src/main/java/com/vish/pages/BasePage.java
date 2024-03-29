@@ -1,15 +1,10 @@
 package com.vish.pages;
 
-import com.vish.constants.FrameworkConstants;
 import com.vish.driver.DriverManager;
 import com.vish.enums.WaitStrategy;
 import com.vish.factories.ExplicitWaitFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class BasePage {
 
