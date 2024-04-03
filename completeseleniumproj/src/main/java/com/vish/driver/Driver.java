@@ -13,8 +13,10 @@ public final class Driver {
      public static void initDriver() throws Exception {
 
         if(Objects.isNull(DriverManager.getDriver())){
+
             System.setProperty("webdriver.gecko.driver",FrameworkConstants.getFirefoxDriverPath());
             DriverManager.setDriver(new FirefoxDriver());
+
             DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.URL).trim());
         }
     }

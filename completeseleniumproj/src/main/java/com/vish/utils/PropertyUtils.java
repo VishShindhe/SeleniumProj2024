@@ -17,6 +17,9 @@ public final class PropertyUtils {
 
     private static final Properties property = new Properties();
     private static final Map<String, String> CONFIGMAP = new HashMap<>();
+
+    //Static block to initialise  property file
+    //Lazy initialization vs eager initialisation
     static {
         try {
             FileInputStream file = new FileInputStream(FrameworkConstants.getConfigFilePath());
@@ -34,6 +37,15 @@ public final class PropertyUtils {
     }
 
     public static String get(ConfigProperties key) throws Exception {
+        //Lazy Initialization
+
+        /* FileInputStream file = new FileInputStream(FrameworkConstants.getConfigFilePath());
+        property.load(file);
+
+        for(Map.Entry<Object,Object> entry: property.entrySet()) {
+            CONFIGMAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+        }*/
+
         if(Objects.isNull(key) || Objects.isNull(CONFIGMAP.get(key.name().toLowerCase()))) {
             throw new Exception("Property name " + key +" is not found");
         }
