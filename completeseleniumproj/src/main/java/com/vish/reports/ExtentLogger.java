@@ -1,11 +1,10 @@
 package com.vish.reports;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.vish.driver.DriverManager;
 import com.vish.enums.ConfigProperties;
 import com.vish.utils.PropertyUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import com.vish.utils.ScreenshotUtils;
+
 
 public final class ExtentLogger {
 
@@ -25,7 +24,7 @@ public final class ExtentLogger {
 
     public static void pass(String message, boolean isScreenShotNeeded) throws Exception{
         if(PropertyUtils.get(ConfigProperties.PASSEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && isScreenShotNeeded ){
-            ExtentManager.getExtentTest().pass(message, MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
+            ExtentManager.getExtentTest().pass(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
         }
         else {
             pass(message);
@@ -34,7 +33,7 @@ public final class ExtentLogger {
 
     public static void fail(String message, boolean isScreenShotNeeded) throws Exception{
         if(PropertyUtils.get(ConfigProperties.FAILEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && isScreenShotNeeded ){
-            ExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
+            ExtentManager.getExtentTest().fail(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
         }
         else {
             fail(message);
@@ -43,15 +42,13 @@ public final class ExtentLogger {
 
     public static void skip(String message, boolean isScreenShotNeeded) throws Exception{
         if(PropertyUtils.get(ConfigProperties.SKIPPEDSTEPSSCREENSHOT).equalsIgnoreCase("yes") && isScreenShotNeeded ){
-            ExtentManager.getExtentTest().skip(message, MediaEntityBuilder.createScreenCaptureFromBase64String(getBase64Image()).build());
+            ExtentManager.getExtentTest().skip(message, MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotUtils.getBase64Image()).build());
         }
         else {
             skip(message);
         }
     }
 
-    public static String getBase64Image() {
-        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
-    }
+
 
 }

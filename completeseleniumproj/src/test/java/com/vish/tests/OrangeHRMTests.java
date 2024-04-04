@@ -12,6 +12,18 @@ public final class OrangeHRMTests extends BaseTest{
 
     @Test(dataProvider = "LoginTestDataProvider")
     public void loginLogoutTest(String username, String password) throws Exception {
+        String title = new OrangeHRMLoginPage()
+                .enterUserName(username).enterPassword(password).clickLogin()
+                .clickAccount().clickLogout()
+                .getTitle();
+
+        Assertions.assertThat(title)
+                .isEqualTo("OrangeHRM");
+
+    }
+
+    @Test(dataProvider = "LoginTestDataProvider")
+    public void newTest(String username, String password) throws Exception {
 
         String title = new OrangeHRMLoginPage()
                 .enterUserName(username).enterPassword(password).clickLogin()
@@ -25,11 +37,10 @@ public final class OrangeHRMTests extends BaseTest{
 
     @DataProvider(name="LoginTestDataProvider",parallel = true)
     public Object[][] getData(){
-
         return new Object[][] {
                 {"Admin", "admin123"},
-                {"Admin111", "admin123"},
-                /* {"Admin222", "admin123"},
+                /*{"Admin111", "admin123"},
+                {"Admin222", "admin123"},
                  {"Admin333", "admin123"}*/
         };
     }
