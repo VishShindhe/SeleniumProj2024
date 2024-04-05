@@ -13,14 +13,14 @@ public final class ExcelUtils {
 
     private ExcelUtils(){}
 
-    public static List<Map<String,String>> getTestDetails(){
+    public static List<Map<String,String>> getTestDetails(String sheetName){
 
         List<Map<String,String>> list = null;
         FileInputStream fs = null;
         try{
             fs = new FileInputStream(FrameworkConstants.getExcelpath());
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
-            String sheetName = "RUNMANAGER";
+
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
             Map<String,String> map = null;
@@ -28,7 +28,7 @@ public final class ExcelUtils {
             int lastRowNum = sheet.getLastRowNum();
             int lastColNum = sheet.getRow(0).getLastCellNum();
 
-            for(int i = 1; i < lastRowNum; i++){
+            for(int i = 1; i <= lastRowNum; i++){
                 map = new HashMap<>();
                 for(int j = 0; j < lastColNum; j++){
                     String key = sheet.getRow(0).getCell(j).getStringCellValue();
