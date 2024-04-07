@@ -20,7 +20,7 @@ public final class ExtentReport {
     public static void initReports() throws Exception {
         if(Objects.isNull(extent)) {
             extent = new ExtentReports();
-            ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentreportfilepath());
+            ExtentSparkReporter spark = new ExtentSparkReporter(FrameworkConstants.getExtentReportFilePath());
             extent.attachReporter(spark);
             spark.config().setTheme(Theme.DARK);
             spark.config().setDocumentTitle("Orange Report");
@@ -32,7 +32,7 @@ public final class ExtentReport {
         if(Objects.nonNull(extent)) {
             extent.flush();
         }
-        Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentreportfilepath()).toURI());
+        Desktop.getDesktop().browse(new File(FrameworkConstants.getExtentReportFilePath()).toURI());
 
     }
 

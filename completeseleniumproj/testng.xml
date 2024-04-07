@@ -4,6 +4,7 @@
     <listeners>
         <listener class-name="com.vish.listeners.ListenerClass" />
         <listener class-name="com.vish.listeners.MethodInterceptor" />
+        <listener class-name="com.vish.listeners.AnnotationTransformer" />
     </listeners>
     <test thread-count="1" name="methods">
         <classes>

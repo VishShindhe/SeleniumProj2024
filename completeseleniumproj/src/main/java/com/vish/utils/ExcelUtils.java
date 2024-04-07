@@ -18,7 +18,7 @@ public final class ExcelUtils {
         List<Map<String,String>> list = null;
         FileInputStream fs = null;
         try{
-            fs = new FileInputStream(FrameworkConstants.getExcelpath());
+            fs = new FileInputStream(FrameworkConstants.getExcelPath());
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
 
             XSSFSheet sheet = workbook.getSheet(sheetName);
