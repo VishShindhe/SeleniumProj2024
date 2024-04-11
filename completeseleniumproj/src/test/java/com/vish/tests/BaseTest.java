@@ -12,14 +12,16 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 public class BaseTest {
 
     protected BaseTest(){ }
 
     @BeforeMethod
-    protected void setUp() throws Exception {
-        Driver.initDriver();
+    protected void setUp(Object[] data) throws Exception {
+        Map<String,String> map = (Map<String, String>)data[0];
+        Driver.initDriver(map.get("browser"));
     }
 
     @AfterMethod

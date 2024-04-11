@@ -10,12 +10,20 @@ import com.vish.constants.FrameworkConstants;
 
 public final class Driver {
      private Driver() {}
-     public static void initDriver() throws Exception {
+     public static void initDriver(String browser) throws Exception {
 
         if(Objects.isNull(DriverManager.getDriver())){
+            if(browser.equalsIgnoreCase("firefox")) {
+                System.setProperty("webdriver.gecko.driver", FrameworkConstants.getFirefoxDriverPath());
+                DriverManager.setDriver(new FirefoxDriver());
+            }
 
-            System.setProperty("webdriver.gecko.driver",FrameworkConstants.getFirefoxDriverPath());
-            DriverManager.setDriver(new FirefoxDriver());
+            /* Add for other browsers
+            else if(browser.equalsIgnoreCase("chrome")) {
+                System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
+                DriverManager.setDriver(new ChromeDriver());
+            }
+             */
 
             DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.URL).trim());
         }
