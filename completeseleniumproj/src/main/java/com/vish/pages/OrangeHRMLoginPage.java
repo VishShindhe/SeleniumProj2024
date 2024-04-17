@@ -4,6 +4,7 @@ import com.vish.enums.WaitStrategy;
 import com.vish.reports.ExtentLogger;
 import com.vish.reports.ExtentManager;
 import com.vish.reports.ExtentReport;
+import com.vish.utils.DecodeUtils;
 import org.openqa.selenium.By;
 
 public final class OrangeHRMLoginPage extends BasePage {
@@ -20,7 +21,7 @@ public final class OrangeHRMLoginPage extends BasePage {
     }
 
     public OrangeHRMLoginPage enterPassword(String password) throws Exception {
-        sendKeys(passwordTextbox, password,WaitStrategy.PRESENCE, "Password");
+        sendKeys(passwordTextbox, DecodeUtils.getDecodedString(password),WaitStrategy.PRESENCE, "Password");
         return this;
     }
 

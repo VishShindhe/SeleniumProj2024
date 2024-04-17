@@ -18,7 +18,7 @@ public final class FrameworkConstants {
 
     private static  String EXTENTREPORTFILEPATH = "";
 
-    private static final int EXPLICITWAIT = 20;
+    private static final int EXPLICITWAIT = 40;
 
     public static String getFirefoxDriverPath(){
         return FIREFOXDRIVERPATH;
