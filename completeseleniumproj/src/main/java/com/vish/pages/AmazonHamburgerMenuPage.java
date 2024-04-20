@@ -7,9 +7,9 @@ import org.openqa.selenium.By;
 public final class AmazonHamburgerMenuPage extends BasePage{
 
     //Copy
-    private String linkComputers = "//div[text()='Mobiles, Computers']/parent::a";
-    private  String linkSubMenu = "//a[text()='%s']";
-    private  String linkSubMenu2 = "//div[text()='%s']/parent::a[text()='%s']";
+    private final String linkComputers = "//div[text()='Mobiles, Computers']/parent::a";
+    private final String linkSubMenu = "//a[text()='%s']";
+    private final String linkSubMenu2 = "//div[text()='%s']/parent::a[text()='%s']";
 
     public AmazonHamburgerMenuPage clickComputer() throws Exception{
         click(By.xpath(linkComputers), WaitStrategy.CLICKABLE, "Mobiles and Computers");

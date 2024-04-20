@@ -5,17 +5,16 @@ import java.util.Objects;
 import com.vish.enums.ConfigProperties;
 import com.vish.utils.PropertyUtils;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import com.vish.constants.FrameworkConstants;
 
 public final class Driver {
      private Driver() {}
      public static void initDriver(String browser) throws Exception {
-
         if(Objects.isNull(DriverManager.getDriver())){
             if(browser.equalsIgnoreCase("firefox")) {
                 System.setProperty("webdriver.gecko.driver", FrameworkConstants.getFirefoxDriverPath());
                 DriverManager.setDriver(new FirefoxDriver());
+
             }
 
             /* Add for other browsers

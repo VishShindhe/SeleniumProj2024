@@ -14,7 +14,7 @@ public final class AmazonHomePage extends BasePage{
 
     private WebElement linkHamburger;
 
-    private String linkBestSellers = "//div[text()='Mobiles, Computers']/parent::a";
+    private final String linkBestSellers = "//div[text()='Mobiles, Computers']/parent::a";
     
 
     /**

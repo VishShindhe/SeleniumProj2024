@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public final class AmazonMobileComputerPage extends BasePage{
 
-    private String linkLaptops = "//a[text()='Laptops']";
+    private final String linkLaptops = "//a[text()='Laptops']";
 
    /* @FindBy(xpath="//a[text()='Laptops']")
     private WebElement linkLaptops;*/
